@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from uuid import uuid4
 
@@ -13,3 +14,4 @@ class Courses(models.Model):
    is_free = models.BooleanField()
    value = models.DecimalField(decimal_places=2, max_digits=10)
    created_at = models.DateField(auto_now_add=True)
+   owner = models.ForeignKey(User, related_name='courses', on_delete=models.CASCADE)
