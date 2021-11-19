@@ -9,5 +9,5 @@ urlpatterns = [
     path('register/', RegisterView.as_view(), name='auth_register'),
     path('change_password/<int:pk>/', ChangePasswordView.as_view(), name='auth_change_password'),
     path('update_profile/<int:pk>/', UpdateProfileView.as_view(), name='auth_update_profile'),
-    path('retrieve_profile/', RetrieveProfileView.as_view(), name='auth_retrieve_profile'),
+    path('retrieve_self_profile/', RetrieveProfileView.as_view(), name='auth_retrieve_self_profile'),
 ]
