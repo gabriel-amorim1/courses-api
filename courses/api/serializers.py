@@ -7,4 +7,4 @@ class CoursesSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Courses
         fields = '__all__'
-        read_only_fields = ('owner',)
+        read_only_fields = ('owner', 'rating', 'quantity_of_ratings')
