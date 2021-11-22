@@ -1,7 +1,8 @@
-from django.db.models.aggregates import Avg, Count, Sum
+from django.db.models.aggregates import Count, Sum
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 from courses.models import Courses
+from rest_framework.serializers import ValidationError
 
 from ratings.api import serializers
 from ratings import models
@@ -13,6 +14,11 @@ class RatingsViewSet(viewsets.ModelViewSet):
     queryset = models.Ratings.objects.all()
 
     def perform_create(self, serializer):
+        user_course_rating = models.Ratings.objects.filter(course=self.request.data['course'], owner=self.request.user.pk)
+
+        if user_course_rating :
+            raise ValidationError({"conflict": "You already rated this course"})
+
         aggregated_ratings = models.Ratings.objects.filter(course=self.request.data['course']).aggregate(        
             count=Count('id_rating'), 
             total_value=Sum('value')
