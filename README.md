@@ -1,11 +1,6 @@
 # Courses API
 
-- Aplicação desenvolvida para compartilhamento de cursos entre estudantes.
-Ao cadastrar um curso na aplicação, é inserido a url dele e as informações inerentes a ele.
-É possível avaliá-lo com a nota de 1 a 5 e será mostrado a média das avaliações, 
-possibilitando ao aluno saber se é um bom curso ou não. Podem ser compartilhados tanto cursos pagos
-como gratuitos e isso é indicado na hora do cadastro. A ideia é compartilhar o máximo de 
-conhecimento e conteúdo bom possível para ajudar-mos nossa comunidade!
+- Aplicação desenvolvida para compartilhamento de cursos entre estudantes. Ao cadastrar um curso na aplicação, é inserido a url dele e as informações inerentes a ele. É possível avaliá-lo com a nota de 1 a 5 e será mostrado a média das avaliações, possibilitando ao aluno saber se é um bom curso ou não. Podem ser compartilhados tanto cursos pagos como gratuitos e isso é indicado na hora do cadastro. A ideia é compartilhar o máximo de conhecimento e conteúdo bom possível para ajudar-mos nossa comunidade!
 
 --------------------------------------------------------------------------------
 
