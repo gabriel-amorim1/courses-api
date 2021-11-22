@@ -10,32 +10,32 @@
 
 - Tenha instalado na sua máquina o gerenciador de pacotes pip3. No linux basta rodar o comando abaixo:
     ```bash
-        $ sudo apt-get install python3-pip
+        sudo apt-get install python3-pip
     ```
 
 - Na pasta do projeto, crie um venv com o comando abaixo:
     ```bash
-        $ python3 -m venv venv
+        python3 -m venv venv
     ```
 
 - Ative o ambiente virutal criado:
     ```bash
-        $ source venv/bin/activate 
+        source venv/bin/activate 
     ```
 
 - Instale as dependências necessárias para rodar o projeto:
     ```bash
-        $ pip3 install -r requirements.txt
+        pip3 install -r requirements.txt
     ```
 
 - Rode as migrations:
     ```bash
-        $ python3 manage.py migrate
+        python3 manage.py migrate
     ```
 
 - Pronto, agora basta subir o servidor:
     ```bash
-        $ python3 manage.py runserver
+        python3 manage.py runserver
     ```
 
 --------------------------------------------------------------------------------
@@ -46,9 +46,10 @@
 
 - Baixar o arquivo `.pem` e conectar-se via ssh com a instância da aws:
     ```bash
-        $ chmod 400 labsuser.pem
-
-        $ ssh -i labsuser.pem ec2-user@ipv4_publico_bastion_host
+        chmod 400 labsuser.pem
+    ```
+    ```bash
+        ssh -i labsuser.pem ec2-user@ipv4_publico_bastion_host
     ```
 
 ### 2 Passo:
@@ -107,7 +108,8 @@
 - Volte para a pasta raiz do projeto e rode os seguintes comandos:
     ```bash
         python3 manage.py migrate
-
+    ```
+    ```bash
         python3 manage.py runserver 0.0.0.0:8000
     ```
 
