@@ -19,10 +19,12 @@ from django.urls import path, include
 from rest_framework import routers
 
 from courses.api import viewsets as coursesviewsets
+from ratings.api import viewsets as ratingsviewsets
 
 route = routers.DefaultRouter()
 
 route.register(r'courses', coursesviewsets.CoursesViewSet, basename='Courses')
+route.register(r'ratings', ratingsviewsets.RatingsViewSet, basename='Ratings')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
