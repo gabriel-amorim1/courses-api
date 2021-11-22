@@ -56,31 +56,19 @@
 
 - Instalar o projeto e o ambiente na instancia da aws:
     ```bash
-    sudo yum install git
-
-    git clone https://github.com/gabriel-amorim1/courses-api.git
-
-    cd courses-api
-
-    python3 -m venv venv
-
-    source venv/bin/activate
-
-    pip3 install -r requirements.txt
-
-    sudo yum install MySQL-python
-
-    pip3 install pymysql
-
-    sudo yum install python-devel mysql-devel python3-devel
-
-    pip3 install mysql-connector-python
-
-    sudo yum install gcc libxml2-devel libxslt-devel python-devel
-
-    pip install mysqlclient
-
-    pip3 install djangorestframework_simplejwt
+    sudo yum install git \
+    && git clone https://github.com/gabriel-amorim1/courses-api.git \
+    && cd courses-api \
+    && python3 -m venv venv \
+    && source venv/bin/activate \
+    && pip3 install -r requirements.txt \
+    && sudo yum install MySQL-python \
+    && pip3 install pymysql \
+    && sudo yum install python-devel mysql-devel python3-devel \
+    && pip3 install mysql-connector-python \
+    && sudo yum install gcc libxml2-devel libxslt-devel python-devel \
+    && pip install mysqlclient \
+    && pip3 install djangorestframework_simplejwt
     ```
 
 ### 3 Passo:
