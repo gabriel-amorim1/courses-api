@@ -51,9 +51,48 @@ class RatingsViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
+        aggregated_ratings = models.Ratings.objects.filter(course=self.request.data['course']).aggregate(        
+            count=Count('id_rating'), 
+            total_value=Sum('value')
+        )
+        
+        if aggregated_ratings['total_value'] is not None :
+            new_ratings_value = aggregated_ratings['total_value'] / aggregated_ratings['count']
+        else :
+            new_ratings_value = 0
+
+        course = Courses.objects.filter(pk=self.request.data['course'])
+
+        course.update(rating=new_ratings_value)
+
         if getattr(instance, '_prefetched_objects_cache', None):
             # If 'prefetch_related' has been applied to a queryset, we need to
             # forcibly invalidate the prefetch cache on the instance.
             instance._prefetched_objects_cache = {}
 
         return Response(serializer.data)
+
+    def perform_destroy(self, instance):
+        user = self.request.user
+
+        if not user.pk == instance.owner.pk:
+            raise ValidationError({"authorize": "You dont have permission for this resource."})
+
+        course_id = instance.course
+
+        instance.delete()
+
+        # aggregated_ratings = models.Ratings.objects.filter(course=course_id).aggregate(        
+        #     count=Count('id_rating'), 
+        #     total_value=Sum('value')
+        # )
+        
+        # if aggregated_ratings['total_value'] is not None :
+        #     new_ratings_value = aggregated_ratings['total_value'] / aggregated_ratings['count']
+        # else :
+        #     new_ratings_value = 0
+
+        # course = Courses.objects.filter(pk=course_id)
+
+        # course.update(rating=new_ratings_value, count=aggregated_ratings['count'])
+
